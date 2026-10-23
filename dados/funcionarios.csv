@@ -1,0 +1,6 @@
+matricula;nome;cpf;dataNascimento;cargo;salario;dataContratacao;logradouro;numero;complemento;bairro;cidade;estado;cep
+100001;Ana Beatriz Souza;52998224725;1990-03-15;Analista de Sistemas;6500.00;2018-02-01;Rua 10;120;Apto 301;Setor Central;Goiânia;GO;74000-000
+100002;Carlos Eduardo Lima;12345678909;1985-07-22;Analista de Sistemas;7200.00;2015-06-15;Avenida Anhanguera;2500;;Setor Leste;Goiânia;GO;74110-010
+100003;Mariana Alves Costa;98765432100;1995-11-02;Desenvolvedor;8000.00;2020-09-10;Rua das Flores;45;Casa 2;Jardim América;Anápolis;GO;75000-100
+100004;João Pedro Ramos;11144477735;1998-01-30;Desenvolvedor;5500.00;2022-03-07;Quadra 5;Lote 12;;Asa Norte;Brasília;DF;70700-050
+100005;Fernanda Oliveira Reis;24681357928;1988-09-09;Gerente de Projetos;12000.00;2012-01-20;Avenida Paulista;1000;Sala 55;Bela Vista;São Paulo;SP;01310-100

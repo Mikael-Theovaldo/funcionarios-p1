@@ -15,13 +15,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Path;
 
-/**
- * Ponto de montagem da aplicação: cria as camadas (repository -> service -> controller)
- * e abre a janela. Para iniciar o programa pelo IntelliJ, execute a classe {@link Launcher}.
- */
 public class MainApp extends Application {
 
-    /** Arquivo de dados, relativo à pasta onde o programa é executado (raiz do projeto). */
+    /** Arquivo de dados */
     private static final Path ARQUIVO_CSV = Path.of("dados", "funcionarios.csv");
 
     @Override

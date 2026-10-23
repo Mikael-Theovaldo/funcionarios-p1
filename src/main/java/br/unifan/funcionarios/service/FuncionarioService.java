@@ -12,16 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Regras de negócio do cadastro: valida, impede duplicidade e sincroniza com o arquivo.
- * Mantém os funcionários em memória (Map por matrícula) e grava no CSV a cada alteração.
- */
 public class FuncionarioService {
 
     private final FuncionarioRepository repository;
     private final Map<String, Funcionario> funcionarios = new LinkedHashMap<>();
 
-    /** Ao criar o service, os dados do arquivo já são carregados. */
     public FuncionarioService(FuncionarioRepository repository) {
         this.repository = repository;
         repository.carregar().forEach(f -> funcionarios.put(f.getMatricula(), f));

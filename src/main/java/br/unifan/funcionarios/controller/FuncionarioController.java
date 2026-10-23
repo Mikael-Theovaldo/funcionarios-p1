@@ -35,11 +35,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * Controlador da tela (padrão MVC): recebe os eventos dos botões (onAction),
- * lê os campos, chama os services e mostra o resultado ou a mensagem de erro.
- * Não tem regra de negócio: ela fica nos services.
- */
+
 public class FuncionarioController {
 
     private static final DateTimeFormatter FORMATO_DATA =
@@ -174,7 +170,7 @@ public class FuncionarioController {
         boolean usaCargo = tipo == TipoRelatorio.POR_CARGO;
         boolean usaFaixa = tipo == TipoRelatorio.FAIXA_SALARIAL;
         boxCargo.setVisible(usaCargo);
-        boxCargo.setManaged(usaCargo);   // managed=false: não ocupa espaço quando escondido
+        boxCargo.setManaged(usaCargo);
         boxFaixa.setVisible(usaFaixa);
         boxFaixa.setManaged(usaFaixa);
     }

@@ -4,11 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/**
- * Funcionário da empresa.
- * Possui um {@link Endereco} (relação de composição: o endereço faz parte do funcionário).
- * A matrícula é o identificador único, por isso equals/hashCode usam só a matrícula.
- */
 public class Funcionario {
 
     private String matricula;

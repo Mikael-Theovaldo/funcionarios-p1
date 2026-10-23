@@ -15,11 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Guarda os funcionários em um arquivo CSV separado por ponto-e-vírgula (;).
- * Uma linha por funcionário, com o endereço "achatado" nas últimas colunas.
- * Datas são gravadas no formato ISO (2000-12-31).
- */
+
 public class FuncionarioCsvRepository implements FuncionarioRepository {
 
     private static final String SEPARADOR = ";";
@@ -92,7 +88,7 @@ public class FuncionarioCsvRepository implements FuncionarioRepository {
     }
 
     private Funcionario paraFuncionario(String linha, int numeroDaLinha) {
-        // o -1 faz o split manter campos vazios no final (ex.: complemento vazio)
+
         String[] c = linha.split(SEPARADOR, -1);
         if (c.length != TOTAL_CAMPOS) {
             throw new PersistenciaException("Linha " + numeroDaLinha + " do CSV inválida: esperados "

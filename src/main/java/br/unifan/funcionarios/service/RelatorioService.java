@@ -11,11 +11,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-/**
- * Relatórios feitos com a API Stream do Java.
- * Cada método lê a lista atual de funcionários e devolve o resultado já processado
- * (a tela só se preocupa em mostrar).
- */
 public class RelatorioService {
 
     private final FuncionarioService funcionarioService;

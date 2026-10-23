@@ -1,10 +1,6 @@
 package br.unifan.funcionarios.model;
 
-/**
- * Endereço de um funcionário.
- * É uma classe simples de modelo (POJO): só guarda dados.
- * As regras de validação ficam na classe util.Validador / service.FuncionarioService.
- */
+
 public class Endereco {
 
     private String logradouro;

@@ -8,11 +8,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.regex.Pattern;
 
-/**
- * Regras de validação dos dados de entrada.
- * Cada método valida UM campo e devolve o valor já "normalizado" (limpo/padronizado),
- * ou lança {@link ValidacaoException} com uma mensagem clara para o usuário.
- */
+
 public final class Validador {
 
     public static final int TAMANHO_MINIMO_NOME = 3;

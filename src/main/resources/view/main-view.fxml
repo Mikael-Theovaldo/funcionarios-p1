@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="br.unifan.funcionarios.controller.FuncionarioController"
+         tabClosingPolicy="UNAVAILABLE">
+    <tabs>
+
+        <!-- ===================== ABA 1: CADASTRO E LISTAGEM ===================== -->
+        <Tab text="Funcionários">
+            <content>
+                <BorderPane>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <top>
+                        <TitledPane text="Dados do funcionário" collapsible="false">
+                            <content>
+                                <GridPane hgap="10" vgap="8">
+                                    <padding>
+                                        <Insets top="10" right="10" bottom="10" left="10"/>
+                                    </padding>
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="130"/>
+                                        <ColumnConstraints hgrow="ALWAYS"/>
+                                        <ColumnConstraints minWidth="130"/>
+                                        <ColumnConstraints hgrow="ALWAYS"/>
+                                    </columnConstraints>
+
+                                    <Label text="Matrícula (6 dígitos)" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                    <TextField fx:id="txtMatricula" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                    <Label text="Nome" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                                    <TextField fx:id="txtNome" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                                    <Label text="CPF" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                    <TextField fx:id="txtCpf" promptText="000.000.000-00" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                    <Label text="Data de nascimento" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                                    <DatePicker fx:id="dpNascimento" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                                    <Label text="Cargo" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                    <TextField fx:id="txtCargo" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                    <Label text="Salário (R$)" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                                    <TextField fx:id="txtSalario" promptText="5000,00" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                                    <Label text="Data de contratação" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                                    <DatePicker fx:id="dpContratacao" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                    <Label text="CEP" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                                    <TextField fx:id="txtCep" promptText="00000-000" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+
+                                    <Label text="Logradouro" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                                    <TextField fx:id="txtLogradouro" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                                    <Label text="Número" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                                    <TextField fx:id="txtNumero" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+
+                                    <Label text="Complemento (opcional)" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                                    <TextField fx:id="txtComplemento" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                                    <Label text="Bairro" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                                    <TextField fx:id="txtBairro" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+
+                                    <Label text="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                                    <TextField fx:id="txtCidade" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                                    <Label text="Estado (UF)" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+                                    <ComboBox fx:id="cbEstado" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+
+                                    <HBox spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="7">
+                                        <Button text="Cadastrar" onAction="#onCadastrar"/>
+                                        <Button text="Limpar formulário" onAction="#onLimpar"/>
+                                    </HBox>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                    </top>
+
+                    <center>
+                        <VBox spacing="8">
+                            <padding>
+                                <Insets top="10" right="0" bottom="0" left="0"/>
+                            </padding>
+
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Consultar por matrícula:"/>
+                                <TextField fx:id="txtBusca" promptText="123456" prefWidth="140"/>
+                                <Button text="Consultar" onAction="#onBuscar"/>
+                                <Button text="Listar todos" onAction="#onListarTodos"/>
+                                <Button text="Excluir selecionado" onAction="#onExcluir"/>
+                            </HBox>
+
+                            <TableView fx:id="tabela" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colMatricula" text="Matrícula" prefWidth="80"/>
+                                    <TableColumn fx:id="colNome" text="Nome" prefWidth="210"/>
+                                    <TableColumn fx:id="colCpf" text="CPF" prefWidth="120"/>
+                                    <TableColumn fx:id="colCargo" text="Cargo" prefWidth="170"/>
+                                    <TableColumn fx:id="colSalario" text="Salário" prefWidth="110"/>
+                                    <TableColumn fx:id="colCidade" text="Cidade" prefWidth="130"/>
+                                    <TableColumn fx:id="colEstado" text="UF" prefWidth="50"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </center>
+
+                    <bottom>
+                        <Label fx:id="lblStatus" text="Pronto.">
+                            <padding>
+                                <Insets top="8" right="0" bottom="0" left="0"/>
+                            </padding>
+                        </Label>
+                    </bottom>
+                </BorderPane>
+            </content>
+        </Tab>
+
+        <!-- ===================== ABA 2: RELATÓRIOS ===================== -->
+        <Tab text="Relatórios">
+            <content>
+                <BorderPane>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <top>
+                        <VBox spacing="10">
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Relatório:"/>
+                                <ComboBox fx:id="cbRelatorio" prefWidth="320"/>
+                            </HBox>
+
+                            <HBox fx:id="boxCargo" spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Cargo:"/>
+                                <TextField fx:id="txtRelCargo" prefWidth="260"/>
+                            </HBox>
+
+                            <HBox fx:id="boxFaixa" spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Salário mínimo:"/>
+                                <TextField fx:id="txtSalMin" promptText="3000,00" prefWidth="120"/>
+                                <Label text="Salário máximo:"/>
+                                <TextField fx:id="txtSalMax" promptText="8000,00" prefWidth="120"/>
+                            </HBox>
+
+                            <Button text="Gerar relatório" onAction="#onGerarRelatorio"/>
+                        </VBox>
+                    </top>
+
+                    <center>
+                        <TextArea fx:id="txtaRelatorio" editable="false"
+                                  style="-fx-font-family: 'Monospaced'; -fx-font-size: 13px;">
+                            <BorderPane.margin>
+                                <Insets top="10"/>
+                            </BorderPane.margin>
+                        </TextArea>
+                    </center>
+                </BorderPane>
+            </content>
+        </Tab>
+
+    </tabs>
+</TabPane>
